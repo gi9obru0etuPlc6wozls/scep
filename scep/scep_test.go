@@ -84,10 +84,10 @@ func TestSignCSR(t *testing.T) {
 		NotBefore:    time.Now().Add(-600).UTC(),
 		NotAfter:     time.Now().AddDate(1, 0, 0).UTC(),
 		SubjectKeyId: id,
-		ExtKeyUsage: []x509.ExtKeyUsage{
-			x509.ExtKeyUsageAny,
-			x509.ExtKeyUsageClientAuth,
-		},
+		//ExtKeyUsage: []x509.ExtKeyUsage{
+		//	x509.ExtKeyUsageAny,
+		//	x509.ExtKeyUsageClientAuth,
+		//},
 	}
 	certRep, err := msg.SignCSR(cacert, cakey, tmpl)
 	if err != nil {

@@ -141,11 +141,12 @@ func (svc *service) PKIOperation(ctx context.Context, data []byte) ([]byte, erro
 		NotAfter:     time.Now().AddDate(0, 0, duration).UTC(),
 		SubjectKeyId: id,
 		KeyUsage:     x509.KeyUsageDigitalSignature,
-		ExtKeyUsage: []x509.ExtKeyUsage{
-			x509.ExtKeyUsageClientAuth,
-		},
+		//ExtKeyUsage: []x509.ExtKeyUsage{
+		//	x509.ExtKeyUsageClientAuth,
+		//},
 		SignatureAlgorithm: csr.SignatureAlgorithm,
 		EmailAddresses:     csr.EmailAddresses,
+		DNSNames:     []string{csr.Subject.CommonName},
 	}
 
 	certRep, err := msg.SignCSR(ca, svc.caKey, tmpl)

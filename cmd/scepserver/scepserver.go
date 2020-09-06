@@ -250,7 +250,7 @@ func createCertificateAuthority(key *rsa.PrivateKey, years int, organization str
 			// Used for certificate signing only
 			KeyUsage: x509.KeyUsageCertSign | x509.KeyUsageCRLSign,
 
-			ExtKeyUsage:        nil,
+			//ExtKeyUsage:        nil,
 			UnknownExtKeyUsage: nil,
 
 			// activate CA
